@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.gxlq.test&apos; to &apos;Webprj710/src&apos;&#x0D;&#x0A;- Original project: &apos;RBAC&apos;&#x0D;&#x0A;- Destination element: &apos;Webprj710/src&apos;&#x0D;&#x0A;- Original element: &apos;RBAC/src/com.gxlq.test&apos;" description="Copy package" destination="=Webprj710/src" element1="/src&lt;com.gxlq.test" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1657705337689" version="1.0"/>
+</session>

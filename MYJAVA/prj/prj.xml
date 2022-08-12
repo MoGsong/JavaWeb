@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prj" default="all">
+  
+  
+  <property file="prj.properties"/>
+  <!-- 如果不需要测试编译，请取消注释以下属性 -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- 编译器选项 -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.klib"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK 定义 -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- 注册自定义的编译器任务定义 -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- 模块 -->
+  
+  
+  <!-- 模块 JavaSenior -->
+  
+  <dirname property="module.javasenior.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.javasenior" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.javasenior" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.javasenior" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.javasenior" value="-encoding GBK -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="javasenior.output.dir" value="${module.javasenior.basedir}/../JavaSenior/bin"/>
+  <property name="javasenior.testoutput.dir" value="${module.javasenior.basedir}/../JavaSenior/bin"/>
+  
+  <path id="javasenior.module.bootclasspath">
+    <!-- 路径被列入编译 bootclasspath -->
+  </path>
+  
+  <path id="javasenior.module.production.classpath">
+    <path refid="${module.jdk.classpath.javasenior}"/>
+    <pathelement location="${idea.home}/lib/junit.jar"/>
+    <pathelement location="E:/Download/dom4j-2.0.3.jar"/>
+    <pathelement location="E:/Download/commons-math3-3.6.1.jar"/>
+    <pathelement location="E:/Download/poi-4.1.2.jar"/>
+    <pathelement location="E:/Download/code-2d.jar"/>
+    <pathelement location="E:/Download/commons-lang3-3.8.1.jar"/>
+    <pathelement location="E:/Download/core-3.3.3.jar"/>
+  </path>
+  
+  <path id="javasenior.runtime.production.module.classpath">
+    <pathelement location="${javasenior.output.dir}"/>
+    <pathelement location="${idea.home}/lib/junit.jar"/>
+    <pathelement location="E:/Download/dom4j-2.0.3.jar"/>
+    <pathelement location="E:/Download/commons-math3-3.6.1.jar"/>
+    <pathelement location="E:/Download/poi-4.1.2.jar"/>
+    <pathelement location="E:/Download/code-2d.jar"/>
+    <pathelement location="E:/Download/commons-lang3-3.8.1.jar"/>
+    <pathelement location="E:/Download/core-3.3.3.jar"/>
+  </path>
+  
+  <path id="javasenior.module.classpath">
+    <pathelement location="${javasenior.output.dir}"/>
+    <path refid="${module.jdk.classpath.javasenior}"/>
+    <pathelement location="${idea.home}/lib/junit.jar"/>
+    <pathelement location="E:/Download/dom4j-2.0.3.jar"/>
+    <pathelement location="E:/Download/commons-math3-3.6.1.jar"/>
+    <pathelement location="E:/Download/poi-4.1.2.jar"/>
+    <pathelement location="E:/Download/code-2d.jar"/>
+    <pathelement location="E:/Download/commons-lang3-3.8.1.jar"/>
+    <pathelement location="E:/Download/core-3.3.3.jar"/>
+  </path>
+  
+  <path id="javasenior.runtime.module.classpath">
+    <pathelement location="${javasenior.output.dir}"/>
+    <pathelement location="${idea.home}/lib/junit.jar"/>
+    <pathelement location="E:/Download/dom4j-2.0.3.jar"/>
+    <pathelement location="E:/Download/commons-math3-3.6.1.jar"/>
+    <pathelement location="E:/Download/poi-4.1.2.jar"/>
+    <pathelement location="E:/Download/code-2d.jar"/>
+    <pathelement location="E:/Download/commons-lang3-3.8.1.jar"/>
+    <pathelement location="E:/Download/core-3.3.3.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.javasenior">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.javasenior">
+    <patternset refid="excluded.from.module.javasenior"/>
+  </patternset>
+  
+  <path id="javasenior.module.sourcepath">
+    <dirset dir="${module.javasenior.basedir}/../JavaSenior">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.javasenior" depends="compile.module.javasenior.production,compile.module.javasenior.tests" description="编辑 模块 JavaSenior"/>
+  
+  <target name="compile.module.javasenior.production" depends="register.custom.compilers" description="编译 模块 JavaSenior; 生产类">
+    <mkdir dir="${javasenior.output.dir}"/>
+    <javac2 destdir="${javasenior.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.javasenior}/javac">
+      <compilerarg line="${compiler.args.javasenior}"/>
+      <bootclasspath refid="javasenior.module.bootclasspath"/>
+      <classpath refid="javasenior.module.production.classpath"/>
+      <src refid="javasenior.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.javasenior"/>
+    </javac2>
+    
+    <copy todir="${javasenior.output.dir}">
+      <fileset dir="${module.javasenior.basedir}/../JavaSenior/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.javasenior.tests" depends="register.custom.compilers,compile.module.javasenior.production" description="编译 模块 JavaSenior; 测试类" unless="skip.tests"/>
+  
+  <target name="clean.module.javasenior" description="清理模块">
+    <delete dir="${javasenior.output.dir}"/>
+    <delete dir="${javasenior.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- 模块 prj -->
+  
+  <dirname property="module.prj.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.prj" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.prj" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.prj" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.prj" value="-encoding GBK -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="prj.output.dir" value="${module.prj.basedir}/target/classes"/>
+  <property name="prj.testoutput.dir" value="${module.prj.basedir}/target/test-classes"/>
+  
+  <path id="prj.module.bootclasspath">
+    <!-- 路径被列入编译 bootclasspath -->
+  </path>
+  
+  <path id="prj.module.production.classpath">
+    <path refid="${module.jdk.classpath.prj}"/>
+  </path>
+  
+  <path id="prj.runtime.production.module.classpath">
+    <pathelement location="${prj.output.dir}"/>
+  </path>
+  
+  <path id="prj.module.classpath">
+    <path refid="${module.jdk.classpath.prj}"/>
+    <pathelement location="${prj.output.dir}"/>
+  </path>
+  
+  <path id="prj.runtime.module.classpath">
+    <pathelement location="${prj.testoutput.dir}"/>
+    <pathelement location="${prj.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.prj">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.prj">
+    <patternset refid="excluded.from.module.prj"/>
+  </patternset>
+  
+  <path id="prj.module.sourcepath">
+    <dirset dir="${module.prj.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="prj.module.test.sourcepath">
+    <dirset dir="${module.prj.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.prj" depends="compile.module.prj.production,compile.module.prj.tests" description="编辑 模块 prj"/>
+  
+  <target name="compile.module.prj.production" depends="register.custom.compilers" description="编译 模块 prj; 生产类">
+    <mkdir dir="${prj.output.dir}"/>
+    <javac2 destdir="${prj.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.prj}/javac">
+      <compilerarg line="${compiler.args.prj}"/>
+      <bootclasspath refid="prj.module.bootclasspath"/>
+      <classpath refid="prj.module.production.classpath"/>
+      <src refid="prj.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.prj"/>
+    </javac2>
+    
+    <copy todir="${prj.output.dir}">
+      <fileset dir="${module.prj.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.prj.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.prj.tests" depends="register.custom.compilers,compile.module.prj.production" description="编译 模块 prj; 测试类" unless="skip.tests">
+    <mkdir dir="${prj.testoutput.dir}"/>
+    <javac2 destdir="${prj.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.prj}/javac">
+      <compilerarg line="${compiler.args.prj}"/>
+      <bootclasspath refid="prj.module.bootclasspath"/>
+      <classpath refid="prj.module.classpath"/>
+      <src refid="prj.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.prj"/>
+    </javac2>
+    
+    <copy todir="${prj.testoutput.dir}">
+      <fileset dir="${module.prj.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.prj" description="清理模块">
+    <delete dir="${prj.output.dir}"/>
+    <delete dir="${prj.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- 模块 RBAC -->
+  
+  <dirname property="module.rbac.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.rbac" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.rbac" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.rbac" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.rbac" value="-encoding GBK -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="rbac.output.dir" value="${module.rbac.basedir}/../RBAC/bin"/>
+  <property name="rbac.testoutput.dir" value="${module.rbac.basedir}/../RBAC/bin"/>
+  
+  <path id="rbac.module.bootclasspath">
+    <!-- 路径被列入编译 bootclasspath -->
+  </path>
+  
+  <path id="rbac.module.production.classpath">
+    <path refid="${module.jdk.classpath.rbac}"/>
+    <pathelement location="${basedir}/../../../mysql-connector-java-8.0.22.jar"/>
+  </path>
+  
+  <path id="rbac.runtime.production.module.classpath">
+    <pathelement location="${rbac.output.dir}"/>
+    <pathelement location="${basedir}/../../../mysql-connector-java-8.0.22.jar"/>
+  </path>
+  
+  <path id="rbac.module.classpath">
+    <path refid="${module.jdk.classpath.rbac}"/>
+    <pathelement location="${rbac.output.dir}"/>
+    <pathelement location="${basedir}/../../../mysql-connector-java-8.0.22.jar"/>
+  </path>
+  
+  <path id="rbac.runtime.module.classpath">
+    <pathelement location="${rbac.output.dir}"/>
+    <pathelement location="${basedir}/../../../mysql-connector-java-8.0.22.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.rbac">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.rbac">
+    <patternset refid="excluded.from.module.rbac"/>
+  </patternset>
+  
+  <path id="rbac.module.sourcepath">
+    <dirset dir="${module.rbac.basedir}/../RBAC">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.rbac" depends="compile.module.rbac.production,compile.module.rbac.tests" description="编辑 模块 RBAC"/>
+  
+  <target name="compile.module.rbac.production" depends="register.custom.compilers" description="编译 模块 RBAC; 生产类">
+    <mkdir dir="${rbac.output.dir}"/>
+    <javac2 destdir="${rbac.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.rbac}/javac">
+      <compilerarg line="${compiler.args.rbac}"/>
+      <bootclasspath refid="rbac.module.bootclasspath"/>
+      <classpath refid="rbac.module.production.classpath"/>
+      <src refid="rbac.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.rbac"/>
+    </javac2>
+    
+    <copy todir="${rbac.output.dir}">
+      <fileset dir="${module.rbac.basedir}/../RBAC/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.rbac.tests" depends="register.custom.compilers,compile.module.rbac.production" description="编译 模块 RBAC; 测试类" unless="skip.tests"/>
+  
+  <target name="clean.module.rbac" description="清理模块">
+    <delete dir="${rbac.output.dir}"/>
+    <delete dir="${rbac.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="构建初始化">
+    <!-- 在这个目标中执行任何构建初始化 -->
+  </target>
+  
+  <target name="clean" depends="clean.module.javasenior, clean.module.prj, clean.module.rbac" description="清理所有"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.javasenior, compile.module.prj, compile.module.rbac" description="构建所有模块"/>
+  
+  <target name="all" depends="build.modules" description="构建所有"/>
+</project>

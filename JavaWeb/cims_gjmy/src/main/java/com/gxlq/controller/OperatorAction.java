@@ -1,0 +1,113 @@
+package com.gxlq.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
+import com.gxlq.entity.Operator;
+import com.gxlq.entity.Role;
+import com.gxlq.service.IOperatorService;
+import com.gxlq.service.IRoleService;
+import com.gxlq.service.imp.OperatorService;
+import com.gxlq.service.imp.RoleService;
+import com.mysql.cj.Session;
+
+/**
+ * Servlet implementation class OperatorAction
+ */
+@WebServlet("/operator")
+@MultipartConfig
+public class OperatorAction extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        String  op = request.getParameter("OP");
+		if(op!=null&&"update".equals(op)) {
+			String strid = request.getParameter("id");
+			int id = 0;
+			if(strid!=null) {
+				id = Integer.parseInt(strid);
+			}
+			String roleid = request.getParameter("roleid");
+
+			IRoleService irs = new RoleService();
+		    Role role = irs.find(Integer.parseInt(roleid));
+		    
+		    String username = request.getParameter("username");
+		    
+			//添加数据
+			String password = request.getParameter("textfield1");
+			String tel = request.getParameter("textfield2");
+			
+			//若已有头像图片则获取头像图片在服务器的路径
+			Object obj = request.getSession().getAttribute("OPERATOR");
+			Operator op1 = (Operator)obj;
+			String fileName = op1.getPic(); 
+			System.out.println("原有头像"+fileName);
+			
+			String reserve = request.getParameter("textfield4");
+			Part file =request.getPart("pic");
+			//获取请求头消息中的与上传文件有关的信息，如：
+			//form-data; name="pic"; filename="car.jpg"
+			//System.out.println(p.toString());
+			String msg = file.getHeader("Content-Disposition");
+			//若有文件上传，截取文件名
+			if( !msg.substring(msg.lastIndexOf("=")+2,msg.length()-1).equals(null)&&!msg.substring(msg.lastIndexOf("=")+2,msg.length()-1).equals("")) {
+				fileName = msg.substring(msg.lastIndexOf("=")+2,msg.length()-1);
+			}
+			//System.out.println("文件名"+fileName);
+			//把上传的文件另存到磁盘上的某个位置
+			//p.write("d://"+fileName);
+			//保存到服务器根目录(开发环境)下，浏览器上可以访问该文件
+			//System.out.println("路径"+request.getServletContext().getRealPath("/")+fileName);
+			file.write(request.getServletContext().getRealPath("/")+fileName);
+			System.out.println(request.getServletContext().getRealPath("/")+fileName + "上传成功!");
+			Operator operator = new Operator(Integer.parseInt(roleid),username, password, tel, fileName, reserve, role);
+			IOperatorService operatorService = new OperatorService();
+			operatorService.update(operator);
+			System.out.println(operator.toString());
+			//response.sendRedirect("http://192.168.1.167:8080/cims_gjmy/CIMS/main.jsp");
+			PrintWriter out = response.getWriter();
+			out.print("<script>window.top.location.href=\"http://192.168.1.167:8080/cims_gjmy/CIMS/login.html\"</script>");
+		}else {
+			String username = request.getParameter("textfield");
+			String password = request.getParameter("textfield2");
+			System.out.println(username +","+ password);
+			
+			String dist = "";
+			IOperatorService ios = new OperatorService();
+	        Operator operator = ios.find(username, password);
+	        if (operator.getId() > 0) {
+	        	System.out.println("账号密码正确");
+	        	//添加成功登录到会话，然后监听会话，记录用户登录、退出操作
+	        	HttpSession session = request.getSession();
+	        	//session.setAttribute("USER",username);
+	        	session.setAttribute("OPERATOR", operator);
+	        	dist = "http://192.168.1.167:8080/cims_gjmy/CIMS/main.html";
+	        }else {
+	        	System.out.println("账号或密码有误");
+	        	dist = "http://192.168.1.167:8080/cims_gjmy/CIMS/login.html";
+	        }
+	        response.sendRedirect(dist);
+
+		}
+	
+	}
+
+}

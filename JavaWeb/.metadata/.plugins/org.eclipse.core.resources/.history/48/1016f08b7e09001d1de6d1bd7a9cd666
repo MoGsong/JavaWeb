@@ -1,0 +1,19 @@
+package com.gxlq.test;
+
+import java.sql.SQLException;
+import java.util.List;
+import com.gxlq.entity.Menu;
+import com.gxlq.service.IMenuService;
+import com.gxlq.service.imp.MenuService;
+
+public class Test {
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+       IMenuService menuService = new MenuService();
+       List<Menu> menus = menuService.find();
+       for (Menu menu : menus) {
+		System.out.println(menu.toString());
+	}		
+    }
+
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="javax.management.loading.PrivateClassLoader"/>
+    <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlElementDecl.GLOBAL"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.ibm.icu.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="com.gxlq.dao.BaseDAO"/>
+    <fullyQualifiedTypeName name="com.gxlq.entity.Role"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.lang.ClassCastException"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.gxlq.entity.Operator"/>
+    <fullyQualifiedTypeName name="com.gxlq.dao.MenuDAO"/>
+    <fullyQualifiedTypeName name="com.gxlq.dao.OperatorDAO"/>
+    <fullyQualifiedTypeName name="com.gxlq.dao.AuthorizationDAO"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.gxlq.entity.Authorization"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.gxlq.service.imp.RoleService"/>
+    <fullyQualifiedTypeName name="com.gxlq.service.IMenuService"/>
+    <fullyQualifiedTypeName name="com.gxlq.service.imp.MenuService"/>
+    <fullyQualifiedTypeName name="com.gxlq.entity.Menu"/>
+    <fullyQualifiedTypeName name="com.gxlq.contoller.MenuController"/>
+    <fullyQualifiedTypeName name="java.net.ServerSocket"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.gxnu.AddOperation"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Assertions"/>
+    <fullyQualifiedTypeName name="java.io.FileFilter"/>
+    <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="com.gxlq.zyj.Code_2D"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+</qualifiedTypeNameHistroy>

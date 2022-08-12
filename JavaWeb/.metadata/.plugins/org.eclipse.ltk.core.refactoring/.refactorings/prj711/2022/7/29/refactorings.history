@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;VeriCode.java&apos; to &apos;prj712/src/main/java/gxnu.servlet&apos;&#x0D;&#x0A;- Original project: &apos;prj711&apos;&#x0D;&#x0A;- Destination element: &apos;prj712/src/main/java/gxnu.servlet&apos;&#x0D;&#x0A;- Original element: &apos;com.gxlq.VeriCode.java&apos;" description="Copy compilation unit" destination="=prj712/src\/main\/java&lt;gxnu.servlet" element1="/src\/main\/java&lt;com.gxlq{VeriCode.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1657613153074" units="1" version="1.0"/>
+</session>

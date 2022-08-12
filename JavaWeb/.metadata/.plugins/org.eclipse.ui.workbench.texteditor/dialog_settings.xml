@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="false"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="UTF-8"/>
+		<list key="findhistory">
+			<item value="ISO-8859-1"/>
+			<item value="onclick"/>
+			<item value="xg()"/>
+			<item value="xg"/>
+			<item value="http://192.168.1.167:8080/cims_gjmy/CIMS/tab/updateoperator.jsp"/>
+			<item value="images/main_22"/>
+			<item value="main_22"/>
+			<item value="image_22"/>
+			<item value="menu"/>
+			<item value="Menu"/>
+			<item value="emailinfo"/>
+			<item value="emailInfo"/>
+			<item value="EmailInfo"/>
+			<item value="tc"/>
+			<item value="退出"/>
+		</list>
+		<list key="replacehistory">
+			<item value="UTF-8"/>
+			<item value="operator"/>
+			<item value="Operator"/>
+			<item value="menu"/>
+			<item value="Menu"/>
+			<item value="role"/>
+			<item value="Role"/>
+			<item value="emailinfo"/>
+			<item value="emailInfo"/>
+			<item value="EmailInfo"/>
+			<item value="STYLE1"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1030"/>
+		<item key="DIALOG_Y_ORIGIN" value="59"/>
+		<item key="DIALOG_WIDTH" value="369"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+</section>

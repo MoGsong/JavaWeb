@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/contoller/AllController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/contoller/AuthorizationController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/contoller/MenuController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/contoller/OperatorController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/contoller/RoleController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/dao/AuthorizationDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/dao/BaseDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/dao/MenuDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/dao/OperatorDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/dao/RoleDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/entity/Authorization.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/entity/Menu.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/entity/Operator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/entity/Role.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/IAuthorizationService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/IMenuService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/IOperatorService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/IRoleService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/imp/AuthorizationService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/imp/MenuService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/imp/OperatorService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/service/imp/RoleService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/test/Test.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/gxlq/view/UI.java" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>

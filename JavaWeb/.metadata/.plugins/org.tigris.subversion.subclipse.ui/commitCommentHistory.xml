@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>v4.0</CommitComment>
+	<CommitComment>v4.0
+实现角色的增删改查功能，实现菜单的增删改查功能，菜单的修改具有下拉框功能</CommitComment>
+	<CommitComment>V3.0
+增加修改邮件功能
+具体步骤：给&quot;修改&quot;一个超链接，链接中传参?op=toupdate&amp;id=&lt;%emailinfo.getId()%&gt;，使用servlet进行请求处理，访问数据库，获取对应Id的邮件数据，然后使用request.getRequestDispatcher().foword()进行请求转发到jsp页面进行内容修改，点击确认会将修改后的内容通过表单和post请求传给servlet，servlet访问数据库将内容更新，之后重定向到主页面。
+注：重定向后的jsp页面内的日历插件图片等内容需要使用绝对路径才可正常获取。</CommitComment>
+	<CommitComment>V2.0plus
+优化主页面显示问题，优化新增邮件处理请求代码</CommitComment>
+	<CommitComment>V2.0
+实现企业管理系统的新增邮件，删除邮件功能。其中有日历插件的使用，字符转码功能。</CommitComment>
+	<CommitComment>V1.0
+持久层，实体层，业务层java代码</CommitComment>
+	<CommitComment>V1.0
+实体层，持久层，业务层java代码</CommitComment>
+	<CommitComment>V1.0</CommitComment>
+	<CommitComment>初始导入。</CommitComment>
+</CommitComments>

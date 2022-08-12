@@ -1,0 +1,18 @@
+package com.gxlq.test;
+
+import java.sql.SQLException;
+import java.util.List;
+import com.gxlq.entity.Menu;
+import com.gxlq.service.IMenuService;
+import com.gxlq.service.IOperatorService;
+import com.gxlq.service.imp.MenuService;
+import com.gxlq.service.imp.OperatorService;
+
+public class Test {
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+       //IOperatorService ios = OperatorService();
+		
+    }
+
+}

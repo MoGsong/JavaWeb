@@ -1,0 +1,43 @@
+package com.gxlq.view;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+/**
+ * 显示界面
+ * @author Administrator
+ *
+ */
+public class UI {
+	public static void show1() throws UnsupportedEncodingException {
+		String str = " __          __  _                       _          _____  ____          _____ _ \r\n" + 
+				" \\ \\        / / | |                     | |        |  __ \\|  _ \\   /\\   / ____| |\r\n" + 
+				"  \\ \\  /\\  / /__| | ___ ___  _ __ ___   | |_ ___   | |__) | |_) | /  \\ | |    | |\r\n" + 
+				"   \\ \\/  \\/ / _ \\ |/ __/ _ \\| '_ ` _ \\  | __/ _ \\  |  _  /|  _ < / /\\ \\| |    | |\r\n" + 
+				"    \\  /\\  /  __/ | (_| (_) | | | | | | | || (_) | | | \\ \\| |_) / ____ \\ |____|_|\r\n" + 
+				"     \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|  \\__\\___/  |_|  \\_\\____/_/    \\_\\_____(_)\r\n" + 
+				"                                                                               ";
+        //编码操作
+        byte[] strByte = str.getBytes("UTF-8");
+        System.out.println(Arrays.toString(strByte));
+         
+         
+        //中间经过了服务器的传输，编码格式转成了 ISO-8859-1
+        String str2 = new String(strByte,"ISO-8859-1");
+         
+        //解码操作  ,此时如果直接进行解码，那么会乱码
+        String str3 = new String(str2.getBytes(),"UTF-8");
+        System.out.println(str3); 
+         
+        //对于上面的乱码，我们必须先还原服务器之前的编码格式，然后在进行解码。那么就不会乱码
+        byte[] strByte2 = str2.getBytes("ISO-8859-1");
+        String str4 = new String(strByte2,"UTF-8");
+        System.out.println(str4); 
+		
+//		System.out.println(msg);
+	}
+	public static void show2() {
+		String msg = "";
+		System.out.println(msg);
+	}
+
+}

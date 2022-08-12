@@ -1,0 +1,18 @@
+package com.gxlq.test;
+
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import com.gxlq.dao.EmailInfoDAO;
+import com.gxlq.entity.EmailInfo;
+
+public class Test {
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+       EmailInfo emailInfo = new EmailInfo("13838384388",Timestamp.valueOf("2022-7-18 12:00:00"),"112233@qq.com","测试一下");
+       EmailInfoDAO emailInfoDAO = new EmailInfoDAO();
+       emailInfoDAO.add(emailInfo);
+       System.out.println(emailInfo.toString());
+    }
+
+}

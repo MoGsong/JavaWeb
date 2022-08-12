@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pydev-testrun version="1.0"?><pydev-testsuite>
+<summary errors="1" failures="0" finished="true" name="Test Run: 1" tests="0" total_time="Finished in: 0.00 secs."/>
+<test location="D:\eclipse\readme\MY JAVA\Gray Hat Python\src\test.py" status="error" test="test" time="0">
+<stdout/>
+<stderr><![CDATA[Traceback (most recent call last):
+  File "D:\eclipse\plugins\org.python.pydev.core_6.4.2.201807021651\pysrc\_pydev_runfiles\pydev_runfiles.py", line 468, in __get_module_from_str
+    mod = __import__(modname)
+  File "D:\eclipse\readme\MY JAVA\Gray Hat Python\src\test.py", line 5
+    '''
+     ^
+SyntaxError: (unicode error) 'utf-8' codec can't decode byte 0xc4 in position 16: invalid continuation byte
+ERROR: Module: test could not be imported (file: D:\eclipse\readme\MY JAVA\Gray Hat Python\src\test.py).
+]]></stderr>
+</test>
+<launch mode="run">
+<launch_memento><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration local="true" path="Gray Hat Python test.py (1)"/>
+]]></launch_memento>
+</launch>
+</pydev-testsuite>

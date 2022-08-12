@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>upload file</title>
+</head>
+
+	<script type="text/javascript">
+		function xxx(){
+			document.getElementById("frm").submit();
+		}
+	</script>
+</head>
+<body>
+	<form action="zzz" method="post" id="frm" enctype="multipart/form-data">
+		请选择文件：<input type="file" name="pic"/>
+		<input type="button" value="上传" onclick="xxx();"/>
+	</form>
+
+</body>
+</html>
+<!-- 批量上传
+<script type="text/javascript">
+	function xxx(){
+		document.getElementById("frm").submit();
+	}
+</script>
+</head>
+<body>
+<form action="zzz" method="post" id="frm" enctype="multipart/form-data">
+	请选择图片：<input type="file" name="pic"/>
+    		<input type="file" name="pic"/>
+	<input type="button" value="上传" onclick="xxx();"/>
+</form>
+ -->

@@ -1,0 +1,54 @@
+<%@page import="com.gxlq.entity.Authorization"%>
+<%@page import="com.gxlq.entity.Menu"%>
+<%@page import="com.gxlq.service.imp.MenuService"%>
+<%@page import="java.util.List"%>
+<%@page import="com.gxlq.service.IMenuService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>step2</title>
+</head>
+<%
+	Object obj = request.getAttribute("AUTHORIZATION");
+	
+	if(obj!=null){
+		List<Authorization> authorizations = (List<Authorization>)obj;
+		}
+%>
+<body>
+	<form action="step3.html" method="post">
+	<%
+		IMenuService ims = new MenuService();
+		List<Menu> menus = ims.findByParent(0);
+		for(Menu menu:menus){				
+	%>
+        <input name="menus" value="<%=menu.getId() %>" type="checkbox" 
+        <%
+        for(Authorization au:authorizations){ if(au.getMenu().getId()==menu.getId()){out.print("checked='checked'");}%>/><%=menu.getName() %><br/>
+		<%
+		break;
+			} 
+		}
+		%>
+		<%
+			List<Menu> sons = ims.findByParent(menu.getId());
+			for(Menu son:sons){
+		%>
+		 <input name="menus" value="<%=son.getId() %>" type="checkbox" 
+		 <%
+		 	for(Authorization authorization:authorizations){
+		 		if(son.getId()==authorization.getMenu().getId()){
+		 			out.print("checked='checked'");}
+		 %>/><%=son.getName() %><br/>
+		<%
+				break;
+		 	  }
+		 	}	
+		%>
+        <input type="submit" value="保存"/>
+    </form>
+</body>
+</html>

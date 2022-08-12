@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>multi_upload file</title>
+</head>
+<script type="text/javascript">
+	function xxx(){
+		document.getElementById("frm").submit();
+	}
+</script>
+</head>
+<body>
+	<form action="multi_upload" method="post" id="frm"
+		enctype="multipart/form-data">
+		请选择图片：<input type="file" name="pic" /> <input type="file" name="pic" />
+		<input type="button" value="上传" onclick="xxx();" />
+	</form>
+</body>
+</html>

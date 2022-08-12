@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="input"/>
+		<list key="findhistory">
+			<item value="opt"/>
+			<item value="operator"/>
+			<item value="Operator"/>
+			<item value="操作员"/>
+			<item value="role"/>
+			<item value="Role"/>
+			<item value="角色"/>
+			<item value="Rperator"/>
+			<item value="menu"/>
+			<item value="Menu"/>
+			<item value="菜单"/>
+			<item value="Yuliu"/>
+			<item value="yuliu"/>
+		</list>
+		<list key="replacehistory">
+			<item value="input"/>
+			<item value="authorization"/>
+			<item value="Authorization"/>
+			<item value="权限"/>
+			<item value="操作员"/>
+			<item value="Operator"/>
+			<item value="Rperator"/>
+			<item value="operator"/>
+			<item value="menu"/>
+			<item value="Menu"/>
+			<item value="菜单"/>
+			<item value="Reserve"/>
+			<item value="reserve"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1017"/>
+		<item key="DIALOG_Y_ORIGIN" value="204"/>
+		<item key="DIALOG_WIDTH" value="356"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+</section>
